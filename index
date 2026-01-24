@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeamNG Mod Koleksiyonu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #252525;
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .subtitle {
+            font-size: 1em;
+            color: #999;
+        }
+
+        .brand-section {
+            margin-bottom: 50px;
+        }
+
+        .brand-header {
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: #2d2d2d;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .brand-header:hover {
+            background: #353535;
+        }
+
+        .brand-name {
+            font-size: 1.8em;
+            font-weight: 400;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-name::after {
+            content: '▼';
+            font-size: 0.6em;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-header.collapsed .brand-name::after {
+            transform: rotate(-90deg);
+        }
+
+        .models-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 1000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .models-list.collapsed {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .model-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #2d2d2d;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .model-item:hover {
+            background: #353535;
+        }
+
+        .model-name {
+            font-size: 1em;
+            color: #e0e0e0;
+        }
+
+        .download-btn {
+            padding: 8px 24px;
+            background: #4a4a4a;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: background 0.2s ease;
+        }
+
+        .download-btn:hover {
+            background: #5a5a5a;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .brand-name {
+                font-size: 1.5em;
+            }
+
+            .model-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BeamNG Mod Koleksiyonu</h1>
+            <p class="subtitle">Araç Modları</p>
+        </header>
+
+        <div class="brand-section">
+            <div class="brand-header collapsed" onclick="toggleBrand(this)">
+                <h2 class="brand-name">ALFA ROMEO</h2>
+            </div>
+            <div class="models-list collapsed">
+                <div class="model-item">
+                    <span class="model-name">Giulia</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-section">
+            <div class="brand-header collapsed" onclick="toggleBrand(this)">
+                <h2 class="brand-name">AUDI</h2>
+            </div>
+            <div class="models-list collapsed">
+                <div class="model-item">
+                    <span class="model-name">A4</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+                <div class="model-item">
+                    <span class="model-name">A5 / S5 / RS5</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+                <div class="model-item">
+                    <span class="model-name">A6 / S6 / RS6</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+                <div class="model-item">
+                    <span class="model-name">A8 / S8</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-section">
+            <div class="brand-header collapsed" onclick="toggleBrand(this)">
+                <h2 class="brand-name">BMW</h2>
+            </div>
+            <div class="models-list collapsed">
+                <div class="model-item">
+                    <span class="model-name">120 (B48 Swapped)</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+                <div class="model-item">
+                    <span class="model-name">235-240 (B58/S58/N58)</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+                <div class="model-item">
+                    <span class="model-name">E60 520/525/530/535</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-section">
+            <div class="brand-header collapsed" onclick="toggleBrand(this)">
+                <h2 class="brand-name">HONDA</h2>
+            </div>
+            <div class="models-list collapsed">
+                <div class="model-item">
+                    <span class="model-name">Civic B16</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+                <div class="model-item">
+                    <span class="model-name">S2000</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-section">
+            <div class="brand-header collapsed" onclick="toggleBrand(this)">
+                <h2 class="brand-name">RENAULT</h2>
+            </div>
+            <div class="models-list collapsed">
+                <div class="model-item">
+                    <span class="model-name">Megane 4 (1.5dCi/1.6dCi/1.3TCe/1.0TCe)</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-section">
+            <div class="brand-header collapsed" onclick="toggleBrand(this)">
+                <h2 class="brand-name">VOLKSWAGEN</h2>
+            </div>
+            <div class="models-list collapsed">
+                <div class="model-item">
+                    <span class="model-name">Scirocco</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+                <div class="model-item">
+                    <span class="model-name">Passat</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+                <div class="model-item">
+                    <span class="model-name">Golf 4</span>
+                    <a href="#" class="download-btn">İndir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleBrand(header) {
+            const modelsList = header.nextElementSibling;
+            header.classList.toggle('collapsed');
+            modelsList.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>
