@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a1a1a;
+            background: black;
             color: #e0e0e0;
             min-height: 100vh;
             padding: 20px;
@@ -23,22 +24,73 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: #252525;
-            border-radius: 8px;
+            background: rgba(30, 30, 45, 0.95);
+            border-radius: 16px;
             padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            width: 100%;
+            margin: 40px auto 0;
+            background: rgba(30, 30, 45, 0.95);
+            border-radius: 16px;
+            padding: 0px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
+        }
+
+        .contact-container.active {
+            max-height: 1000px;
+            opacity: 1;
+            margin: 40px auto 80px;
+            padding: 40px;
+            transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
         }
 
         header {
             text-align: center;
             padding-bottom: 30px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #3a3a3a;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ffffff1a;
+        }
+
+        .contactme {
+            color: white;
+            background: #3b82f6;
+            border: 0px;
+            padding: 12px 28px;
+            margin: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: large;
+            transition: all 0.2s ease;
+        }
+
+        .contactme:hover {
+            background: #2563eb;
         }
 
         h1 {
             font-size: 2.5em;
             color: #ffffff;
             margin-bottom: 10px;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
             font-weight: 400;
         }
 
@@ -54,14 +106,17 @@
         .brand-header {
             margin-bottom: 20px;
             padding: 15px 20px;
-            background: #2d2d2d;
-            border-radius: 4px;
+            background: rgba(45, 45, 60, 0.6);
+            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.2s ease;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .brand-header:hover {
-            background: #353535;
+            background: rgba(55, 55, 75, 0.8);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateX(5px);
         }
 
         .brand-name {
@@ -103,13 +158,16 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background: #2d2d2d;
-            border-radius: 4px;
-            transition: background 0.2s ease;
+            background: rgba(40, 40, 55, 0.5);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         .model-item:hover {
-            background: #353535;
+            background: rgba(50, 50, 70, 0.7);
+            transform: translateX(10px);
+            border-color: rgba(59, 130, 246, 0.2);
         }
 
         .model-name {
@@ -119,16 +177,81 @@
 
         .download-btn {
             padding: 8px 24px;
-            background: #4a4a4a;
+            background: #10b981;
             color: #ffffff;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 0.9em;
             transition: background 0.2s ease;
+            font-weight: 500;
         }
 
         .download-btn:hover {
-            background: #5a5a5a;
+            background: #059669;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(40, 40, 55, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(50, 50, 70, 0.8);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        input[type="email"]::placeholder,
+        textarea::placeholder {
+            color: #999;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button[type="submit"],
+        .back-button {
+            padding: 12px 30px;
+            background: #3b82f6;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            font-family: inherit;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        button[type="submit"]:hover,
+        .back-button:hover {
+            background: #2563eb;
+        }
+
+        button[type="submit"]:active,
+        .back-button:active {
+            background: #1d4ed8;
         }
 
         @media (max-width: 768px) {
@@ -138,6 +261,10 @@
 
             h1 {
                 font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
             }
 
             .brand-name {
@@ -152,12 +279,32 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
             <h1>BeamNG Mod Archive</h1>
-            <p class="subtitle">-Car Mods-</p>
+
+            <p class="subtitle">--------------------------------------------------------</p>
+            <p class="subtitle">|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modlar belirli araliklarla
+                guncellenmektedir&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</p>
+            <p class="subtitle">|&nbsp;istediginiz modlari alttaki butondan yazabilirsiniz&nbsp;|</p>
+            <p class="subtitle">--------------------------------------------------------</p>
+
+            <button onclick="showContact()" class="contactme">
+                Bana Ulaş & Mod Iste
+            </button>
         </header>
+
+        <div class="contact-container">
+            <h2>İletişim Formu</h2>
+            <form action="https://formspree.io/f/mdaeqojo" method="POST">
+                <input type="email" name="email" placeholder="Mail adresin" required>
+                <textarea name="message" placeholder="Mesajın" required></textarea>
+                <button type="submit">Gönder</button>
+                <button type="button" class="back-button" onclick="showMain()">Kapat</button>
+            </form>
+        </div>
 
         <div class="brand-section">
             <div class="brand-header collapsed" onclick="toggleBrand(this)">
@@ -182,7 +329,8 @@
                 </div>
                 <div class="model-item">
                     <span class="model-name">RS5</span>
-                    <a href="https://drive.google.com/file/d/1aIPalYsZTZ0vCvoe2ddBwDNSJqfvqH4K/view?usp=sharing" class="download-btn">İndir</a>
+                    <a href="https://drive.google.com/file/d/1aIPalYsZTZ0vCvoe2ddBwDNSJqfvqH4K/view?usp=sharing"
+                        class="download-btn">İndir</a>
                 </div>
                 <div class="model-item">
                     <span class="model-name">A6 / S6 / RS6</span>
@@ -210,7 +358,8 @@
                 </div>
                 <div class="model-item">
                     <span class="model-name">E60</span>
-                    <a href="https://drive.google.com/file/d/1YutOsYdn4mnYLZ6dJQtL98jk86zqA1i8/view?usp=sharing" class="download-btn">İndir</a>
+                    <a href="https://drive.google.com/file/d/1YutOsYdn4mnYLZ6dJQtL98jk86zqA1i8/view?usp=sharing"
+                        class="download-btn">İndir</a>
                 </div>
             </div>
         </div>
@@ -226,7 +375,8 @@
                 </div>
                 <div class="model-item">
                     <span class="model-name">S2000</span>
-                    <a href="https://drive.google.com/file/d/1Hm9ghoVQFXsiMEHZI7HNbg1aRKIWy3eg/view?usp=sharing" class="download-btn">İndir</a>
+                    <a href="https://drive.google.com/file/d/1Hm9ghoVQFXsiMEHZI7HNbg1aRKIWy3eg/view?usp=sharing"
+                        class="download-btn">İndir</a>
                 </div>
             </div>
         </div>
@@ -238,7 +388,8 @@
             <div class="models-list collapsed">
                 <div class="model-item">
                     <span class="model-name">Megane 4</span>
-                    <a href="https://drive.google.com/file/d/1cgijcIPrZbWwv9c9GY2KOJUsiQViJxjS/view?usp=sharing" class="download-btn">İndir</a>
+                    <a href="https://drive.google.com/file/d/1cgijcIPrZbWwv9c9GY2KOJUsiQViJxjS/view?usp=sharing"
+                        class="download-btn">İndir</a>
                 </div>
             </div>
         </div>
@@ -250,15 +401,18 @@
             <div class="models-list collapsed">
                 <div class="model-item">
                     <span class="model-name">Scirocco</span>
-                    <a href="https://drive.google.com/file/d/1TqJFajFZN4_dJbHXCSaZM_UN032vSo3r/view?usp=sharing" class="download-btn">İndir</a>
+                    <a href="https://drive.google.com/file/d/1TqJFajFZN4_dJbHXCSaZM_UN032vSo3r/view?usp=sharing"
+                        class="download-btn">İndir</a>
                 </div>
                 <div class="model-item">
                     <span class="model-name">Passat</span>
-                    <a href="https://drive.google.com/file/d/1ohgCJ1Htq7yKkxB9Kksl8wftH5hN8-bH/view?usp=sharing" class="download-btn">İndir</a>
+                    <a href="https://drive.google.com/file/d/1ohgCJ1Htq7yKkxB9Kksl8wftH5hN8-bH/view?usp=sharing"
+                        class="download-btn">İndir</a>
                 </div>
                 <div class="model-item">
                     <span class="model-name">Golf 4</span>
-                    <a href="https://drive.google.com/file/d/10Kb7Q_z_0otHP4YOXpEnGM56EViqlYvw/view?usp=sharing" class="download-btn">İndir</a>
+                    <a href="https://drive.google.com/file/d/10Kb7Q_z_0otHP4YOXpEnGM56EViqlYvw/view?usp=sharing"
+                        class="download-btn">İndir</a>
                 </div>
             </div>
         </div>
@@ -270,6 +424,19 @@
             header.classList.toggle('collapsed');
             modelsList.classList.toggle('collapsed');
         }
+
+        function showContact() {
+            const contactContainer = document.querySelector('.contact-container');
+            contactContainer.classList.add('active');
+            setTimeout(() => {
+                contactContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 300);
+        }
+
+        function showMain() {
+            document.querySelector('.contact-container').classList.remove('active');
+        }
     </script>
 </body>
+
 </html>
